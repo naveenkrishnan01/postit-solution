@@ -2,9 +2,6 @@
   <li>
     <%= link_to "Postit!", root_path, :class => 'brand' %>
   </li>
-  <li>
-    <%= link_to 'link', '' %>
-  </li>
 </ul>
 
  <div class='btn-group nav_item'>
@@ -25,9 +22,24 @@
              New Category
            <% end %>
            </li>
-    </ul>  
+     
  </div>
  
 <div class='nav_item'>
    <%= link_to 'New Post', new_post_path, class: 'btn btn-success btn-small' %>
  </div>
+<br/>
+
+
+<div class='nav_item'>
+<ul>
+  <% if logged_in? %>
+        <li> Hi <%= current_user.username %></li>
+         <%= link_to 'Log-out', logout_path %>
+     <% else %>
+        <%= link_to 'Register', register_path %>
+        <%= link_to 'Login', login_path %>
+   <% end %>
+</ul>
+</div>
+
